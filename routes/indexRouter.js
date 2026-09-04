@@ -19,7 +19,9 @@ const messages = [
   },
 ];
 
-indexRouter.get("/", (req, res) => res.send("Reached index route"));
+indexRouter.get("/", (req, res) => {
+  res.render("index", { title: "Mini Messageboard", messages: messages });
+});
 // use postman to send POST requests
 indexRouter.post("/new", (req, res) =>
   res.send("Reached route to add new messages"),

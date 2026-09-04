@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 2rem;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
