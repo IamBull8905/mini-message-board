@@ -22,9 +22,16 @@ const messages = [
 indexRouter.get("/", (req, res) => {
   res.render("index", { title: "Mini Messageboard", messages: messages });
 });
-// use postman to send POST requests
-indexRouter.post("/new", (req, res) =>
-  res.send("Reached route to add new messages"),
-);
+
+indexRouter.get("/new", (req, res) => {
+  res.render("form", { title: "Send a Message!" });
+});
+
+// use postman/submit form to send POST requests
+indexRouter.post("/new", (req, res) => {
+  const { messageContents, authorName } = req.body;
+  messages.push({ text: messageContents, user: authorName, added: new Date() });
+  res.redirect("/");
+});
 
 module.exports = indexRouter;
