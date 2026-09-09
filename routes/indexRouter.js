@@ -22,11 +22,21 @@ const messages = [
 const links = [{ href: "/new", text: "New Message" }];
 
 indexRouter.get("/", (req, res) => {
-  res.render("index", { title: "Mini Message Board", messages: messages, links: links });
+  res.render("index", {
+    title: "Mini Message Board",
+    messages: messages,
+    links: links,
+  });
 });
 
 indexRouter.get("/new", (req, res) => {
   res.render("form", { title: "Send a Message!" });
+});
+
+indexRouter.get("/messages/:id", (req, res) => {
+  const messageIndex = req.params.id;
+  const message = messages[messageIndex];
+  res.render("message", { message });
 });
 
 // use postman/submit form to send POST requests
