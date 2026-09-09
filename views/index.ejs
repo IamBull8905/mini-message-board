@@ -5,6 +5,9 @@
   </head>
   <body>
     <h1><%= locals.title %></h1>
+    <a href="<%= links[0].href %>">
+      <span><%= links[0].text %></span>
+    </a>
     <ul class="message-container">
       <% messages.forEach((message) => { %>
       <div class="message">

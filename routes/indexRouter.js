@@ -1,4 +1,4 @@
-const { Router } = require("express");
+const { Router, text } = require("express");
 const indexRouter = Router();
 
 const messages = [
@@ -19,8 +19,10 @@ const messages = [
   },
 ];
 
+const links = [{ href: "/new", text: "New Message" }];
+
 indexRouter.get("/", (req, res) => {
-  res.render("index", { title: "Mini Messageboard", messages: messages });
+  res.render("index", { title: "Mini Message Board", messages: messages, links: links });
 });
 
 indexRouter.get("/new", (req, res) => {
