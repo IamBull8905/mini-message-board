@@ -1,49 +1,14 @@
 const { Router, text } = require("express");
 const indexRouter = Router();
+const { getAllMessagesFromDb, insertNewMessageIntoDb, getSpecificMessageFromDb, getNewMessageForm } = require("../controllers/messageController");
 
-const messages = [
-  {
-    text: "Hii im so cool!",
-    user: "Nish",
-    added: new Date(),
-  },
-  {
-    text: "BESTIE BOOO - yeah duh ofc you are!!",
-    user: "Viv",
-    added: new Date(),
-  },
-  {
-    text: "How flattering...",
-    user: "Nish",
-    added: new Date(),
-  },
-];
+indexRouter.get("/", getAllMessagesFromDb);
 
-const links = [{ href: "/new", text: "New Message" }];
+indexRouter.get("/new", getNewMessageForm);
 
-indexRouter.get("/", (req, res) => {
-  res.render("index", {
-    title: "Mini Message Board",
-    messages: messages,
-    links: links,
-  });
-});
-
-indexRouter.get("/new", (req, res) => {
-  res.render("form", { title: "Send a Message!" });
-});
-
-indexRouter.get("/messages/:id", (req, res) => {
-  const messageIndex = req.params.id;
-  const message = messages[messageIndex];
-  res.render("message", { message });
-});
+indexRouter.get("/messages/:id", getSpecificMessageFromDb);
 
 // use postman/submit form to send POST requests
-indexRouter.post("/new", (req, res) => {
-  const { messageContents, authorName } = req.body;
-  messages.push({ text: messageContents, user: authorName, added: new Date() });
-  res.redirect("/");
-});
+indexRouter.post("/new", insertNewMessageIntoDb);
 
 module.exports = indexRouter;

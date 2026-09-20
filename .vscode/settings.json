@@ -1,0 +1,33 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "LOCAL NEW",
+            "database": "mini_message_board_messages",
+            "username": "iambull"
+        },
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "PRODUCTION NEW",
+            "connectString": "postgresql://postgres:bfNtyWQEJqnmoYrNfOPUzDpBjazjmDeT@thomas.proxy.rlwy.net:54209/railway"
+        },
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "sshOptions": {
+                "port": 22
+            },
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "PRODUCTION PRIVATE",
+            "connectString": "postgresql://postgres:bfNtyWQEJqnmoYrNfOPUzDpBjazjmDeT@127.0.0.1:40705/railway"
+        }
+    ]
+}
