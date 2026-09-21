@@ -3,5 +3,5 @@ const { loadEnvFile } = require("node:process");
 loadEnvFile();
 
 module.exports = new Pool({
-  connectionString: process.env.LOCAL_CONNECTION_STRING,
+  connectionString: process.env.DATABASE_URL,
 });
