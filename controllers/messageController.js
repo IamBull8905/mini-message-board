@@ -31,7 +31,7 @@ async function getAllMessagesFromDb(req, res) {
 }
 
 async function getSpecificMessageFromDb(req, res) {
-  const messageIndex = Number(req.params.id) + 1;
+  const messageIndex = Number(req.params.id);
   const message = await db.getSpecificMessageDetails(String(messageIndex));
   res.render("message", { message });
 }

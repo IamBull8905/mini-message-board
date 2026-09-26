@@ -10,7 +10,7 @@ async function getAllMessages() {
 async function getSpecificMessageDetails(messageId) {
   console.log(messageId);
   const { rows } = await pool.query(
-    "SELECT text, username, added FROM messages WHERE id = $1",
+    "SELECT text, username, added FROM messages OFFSET $1 LIMIT 1",
     [messageId],
   );
   return rows[0];
